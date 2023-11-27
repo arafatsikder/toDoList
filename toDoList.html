@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .to-do .notice .heading{
+            line-height: 1.5;
+        }
+    </style>
+    <title>To Do List</title>
+</head>
+<body>
+    <div id = "heading">
+    <p id = "to-do" style="font-size: 30px;">To Do List</p>
+    <p id = "noitce" style="font-size: 15px;">(please click on text if your task is completed.)</p>
+    </div>
+    <ul id="list-container">
+        <!-- <li class="list-item">prayer</li>
+        <li class="list-item">sleep</li>
+        <li class="list-item">eat</li>
+        <li class="list-item">play</li>
+        <li class="list-item">Entertainment</li> -->
+    </ul>
+    <input id = "input-text" placeholder = "Enter Your Task" type = "text"><br><br>
+    <button id="btn">add</button>
+
+
+    <script>
+        document.getElementById('btn').addEventListener('click',function(){
+            const listContainer = document.getElementById('list-container');
+            const li = document.createElement('li');
+            const input = document.getElementById('input-text');
+            const inputText = input.value;
+            li.innerText = inputText;
+            li.classList.add('list-item');
+            listContainer.appendChild(li) 
+            input.value = '';
+        })
+
+        document.getElementById('list-container').addEventListener('click',function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+    </script>
+</body>
+</html>
